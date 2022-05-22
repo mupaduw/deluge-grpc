@@ -1,4 +1,4 @@
-sources = deluge_gprc
+sources = deluge_grpc
 
 .PHONY: test format lint unittest coverage pre-commit clean
 test: format lint unittest

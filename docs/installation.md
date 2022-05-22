@@ -2,33 +2,33 @@
 
 ## Stable release
 
-To install deluge-gprc, run this command in your
+To install deluge-grpc, run this command in your
 terminal:
 
 ``` console
-$ pip install deluge-gprc
+$ pip install deluge-grpc
 ```
 
-This is the preferred method to install deluge-gprc, as it will always install the most recent stable release.
+This is the preferred method to install deluge-grpc, as it will always install the most recent stable release.
 
 If you don't have [pip][] installed, this [Python installation guide][]
 can guide you through the process.
 
 ## From source
 
-The source for deluge-gprc can be downloaded from
+The source for deluge-grpc can be downloaded from
 the [Github repo][].
 
 You can either clone the public repository:
 
 ``` console
-$ git clone git://github.com/chrisbc/deluge-gprc
+$ git clone git://github.com/chrisbc/deluge-grpc
 ```
 
 Or download the [tarball][]:
 
 ``` console
-$ curl -OJL https://github.com/chrisbc/deluge-gprc/tarball/master
+$ curl -OJL https://github.com/chrisbc/deluge-grpc/tarball/master
 ```
 
 Once you have a copy of the source, you can install it with:

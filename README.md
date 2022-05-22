@@ -24,3 +24,13 @@ RPC interface to deluge-card.
 ## Credits
 
 This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [waynerv/cookiecutter-pypackage](https://github.com/waynerv/cookiecutter-pypackage) project template.
+
+## Issues
+
+```
+(deluge-gprc-2JayzDdQ-py3.9) bash-3.2$ python3 -m grpc_tools.protoc -I ./deluge_gprc/ --python_out=./deluge_gprc/__protoc_gen__/ --gprc_out=./deluge_gprc/__protoc_gen__/ deluge_gprc/deluge_dfs.proto
+protoc-gen-gprc: program not found or is not executable
+Please specify a program using absolute path or make sure the program is available in your PATH system variable
+--gprc_out: protoc-gen-gprc: Plugin failed with status code 1.
+(deluge-gprc-2JayzDdQ-py3.9) bash-3.2$
+```

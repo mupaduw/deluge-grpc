@@ -1,7 +1,7 @@
-site_name: deluge-gprc
-site_url: https://chrisbc.github.io/deluge-gprc
-repo_url: https://github.com/chrisbc/deluge-gprc
-repo_name: chrisbc/deluge-gprc
+site_name: deluge-grpc
+site_url: https://chrisbc.github.io/deluge-grpc
+repo_url: https://github.com/chrisbc/deluge-grpc
+repo_name: chrisbc/deluge-grpc
 #strict: true
 nav:
   - Home: index.md
@@ -51,7 +51,7 @@ plugins:
       lang: en
   - mkdocstrings:
       watch:
-        - deluge-gprc
+        - deluge_grpc
 extra:
   social:
     - icon: fontawesome/brands/twitter
@@ -63,7 +63,7 @@ extra:
       link: https://github.com/waynerv/cookiecutter-pypackage
       name: Facebook
     - icon: fontawesome/brands/github
-      link: https://github.com/chrisbc/deluge-gprc
+      link: https://github.com/chrisbc/deluge-grpc
       name: Github
     - icon: material/email
       link: "mailto:chrisbc@artisan.co.nz"

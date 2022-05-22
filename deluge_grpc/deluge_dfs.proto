@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.mupaduw.deluge_dfs";
+option java_outer_classname = "DelugeFolderSystemProto";
+option objc_class_prefix = "DFS";
+
+package deluge_dfs;
+
+// The service definition.
+service DelugeFolderSystem {
+  // Sends a list of folders that appear to be Deluge FS
+  rpc ListFolderSystems (ListFoldersRequest) returns (ListFoldersReply) {}
+  rpc ListContents (ListContentsRequest) returns (ListContentsReply) {}
+}
+
+enum ContentType {
+  SONG = 0;
+  SAMPLE = 1;
+  KIT = 2;
+  SYNTH = 3;
+}
+
+message ListContentsRequest {
+  string card_root = 1;
+  string pattern = 2;
+  ContentType content_type = 3;
+}
+
+message ListContentsReply {
+  string card_root = 1;
+  ContentType content_type = 2;
+  repeated string file_names = 3;
+}
+
+// The request message containing ...
+message ListFoldersRequest {
+  string path = 1;
+}
+
+// The response message containing the ...
+message ListFoldersReply {
+  repeated string folder_names = 1;
+}

@@ -1,1 +1,1 @@
-::: deluge_gprc
+::: deluge_grpc

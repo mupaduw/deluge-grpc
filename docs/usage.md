@@ -1,7 +1,7 @@
 # Usage
 
-To use deluge-gprc in a project
+To use deluge-grpc in a project
 
 ```
-import deluge_gprc
+import deluge_grpc
 ```
