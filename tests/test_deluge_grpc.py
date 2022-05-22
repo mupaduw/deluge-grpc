@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Tests for `deluge_gprc` package."""
+"""Tests for `deluge_grpc` package."""
 
 import pytest
 
