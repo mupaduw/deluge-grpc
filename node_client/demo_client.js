@@ -1,4 +1,4 @@
-var PROTO_PATH = __dirname + './../deluge_gprc/deluge_dfs.proto';
+var PROTO_PATH = __dirname + './../deluge_grpc/deluge_dfs.proto';
 
 var parseArgs = require('minimist');
 var grpc = require('@grpc/grpc-js');
@@ -35,7 +35,7 @@ function main() {
   }
 
   client.listFolderSystems({path: card_path}, function(err, response) {
-    console.log('listFolderSystems:', response.folder_names);
+    console.log('listFolderSystems:', response.folder_names, err);
   });
 }
 

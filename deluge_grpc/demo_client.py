@@ -25,6 +25,13 @@ def run(args):
             response = stub.ListContents(request)
             print("DelugeFolderSystem client received: " + str([s for s in response.file_names]))
 
+        if args.type == 'samples':
+            request = deluge_dfs_pb2.ListContentsRequest(
+                card_root=args.root, pattern=args.pattern or "", content_type=deluge_dfs_pb2.ContentType.SAMPLE
+            )
+            for r in stub.ListContentsStream(request):
+                print(r.file_name)
+
 
 if __name__ == '__main__':
     """e.g.\n

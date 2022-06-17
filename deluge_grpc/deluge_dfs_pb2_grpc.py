@@ -13,7 +13,7 @@ class DelugeFolderSystemStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.ListFolderSystems = channel.unary_unary(
+        self.ListFolderSystems = channel.unary_stream(
             '/deluge_dfs.DelugeFolderSystem/ListFolderSystems',
             request_serializer=deluge__dfs__pb2.ListFoldersRequest.SerializeToString,
             response_deserializer=deluge__dfs__pb2.ListFoldersReply.FromString,
@@ -22,6 +22,11 @@ class DelugeFolderSystemStub(object):
             '/deluge_dfs.DelugeFolderSystem/ListContents',
             request_serializer=deluge__dfs__pb2.ListContentsRequest.SerializeToString,
             response_deserializer=deluge__dfs__pb2.ListContentsReply.FromString,
+        )
+        self.ListContentsStream = channel.unary_stream(
+            '/deluge_dfs.DelugeFolderSystem/ListContentsStream',
+            request_serializer=deluge__dfs__pb2.ListContentsRequest.SerializeToString,
+            response_deserializer=deluge__dfs__pb2.ListContentsStreamReply.FromString,
         )
 
 
@@ -40,10 +45,16 @@ class DelugeFolderSystemServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListContentsStream(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DelugeFolderSystemServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'ListFolderSystems': grpc.unary_unary_rpc_method_handler(
+        'ListFolderSystems': grpc.unary_stream_rpc_method_handler(
             servicer.ListFolderSystems,
             request_deserializer=deluge__dfs__pb2.ListFoldersRequest.FromString,
             response_serializer=deluge__dfs__pb2.ListFoldersReply.SerializeToString,
@@ -52,6 +63,11 @@ def add_DelugeFolderSystemServicer_to_server(servicer, server):
             servicer.ListContents,
             request_deserializer=deluge__dfs__pb2.ListContentsRequest.FromString,
             response_serializer=deluge__dfs__pb2.ListContentsReply.SerializeToString,
+        ),
+        'ListContentsStream': grpc.unary_stream_rpc_method_handler(
+            servicer.ListContentsStream,
+            request_deserializer=deluge__dfs__pb2.ListContentsRequest.FromString,
+            response_serializer=deluge__dfs__pb2.ListContentsStreamReply.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler('deluge_dfs.DelugeFolderSystem', rpc_method_handlers)
@@ -75,7 +91,7 @@ class DelugeFolderSystem(object):
         timeout=None,
         metadata=None,
     ):
-        return grpc.experimental.unary_unary(
+        return grpc.experimental.unary_stream(
             request,
             target,
             '/deluge_dfs.DelugeFolderSystem/ListFolderSystems',
@@ -110,6 +126,35 @@ class DelugeFolderSystem(object):
             '/deluge_dfs.DelugeFolderSystem/ListContents',
             deluge__dfs__pb2.ListContentsRequest.SerializeToString,
             deluge__dfs__pb2.ListContentsReply.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def ListContentsStream(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/deluge_dfs.DelugeFolderSystem/ListContentsStream',
+            deluge__dfs__pb2.ListContentsRequest.SerializeToString,
+            deluge__dfs__pb2.ListContentsStreamReply.FromString,
             options,
             channel_credentials,
             insecure,

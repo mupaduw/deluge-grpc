@@ -10,8 +10,9 @@ package deluge_dfs;
 // The service definition.
 service DelugeFolderSystem {
   // Sends a list of folders that appear to be Deluge FS
-  rpc ListFolderSystems (ListFoldersRequest) returns (ListFoldersReply) {}
+  rpc ListFolderSystems (ListFoldersRequest) returns (stream ListFoldersReply) {}
   rpc ListContents (ListContentsRequest) returns (ListContentsReply) {}
+  rpc ListContentsStream (ListContentsRequest) returns (stream ListContentsStreamReply) {}
 }
 
 enum ContentType {
@@ -31,6 +32,10 @@ message ListContentsReply {
   string card_root = 1;
   ContentType content_type = 2;
   repeated string file_names = 3;
+}
+
+message ListContentsStreamReply {
+  string file_name = 1;
 }
 
 // The request message containing ...

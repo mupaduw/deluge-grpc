@@ -3,27 +3,48 @@
 
 [![pypi](https://img.shields.io/pypi/v/deluge-gprc.svg)](https://pypi.org/project/deluge-gprc/)
 [![python](https://img.shields.io/pypi/pyversions/deluge-gprc.svg)](https://pypi.org/project/deluge-gprc/)
-[![Build Status](https://github.com/chrisbc/deluge-gprc/actions/workflows/dev.yml/badge.svg)](https://github.com/chrisbc/deluge-gprc/actions/workflows/dev.yml)
-[![codecov](https://codecov.io/gh/chrisbc/deluge-gprc/branch/main/graphs/badge.svg)](https://codecov.io/github/chrisbc/deluge-gprc)
+[![Build Status](https://github.com/mupaduw/deluge-gprc/actions/workflows/dev.yml/badge.svg)](https://github.com/mupaduw/deluge-gprc/actions/workflows/dev.yml)
+[![codecov](https://codecov.io/gh/mupaduw/deluge-gprc/branch/main/graphs/badge.svg)](https://codecov.io/github/mupaduw/deluge-gprc)
 
 
 
 RPC interface to deluge-card.
 
 
-* Documentation: <https://chrisbc.github.io/deluge-gprc>
-* GitHub: <https://github.com/chrisbc/deluge-gprc>
+* Documentation: <https://mupaduw.github.io/deluge-gprc>
+* GitHub: <https://github.com/mupaduw/deluge-gprc>
 * PyPI: <https://pypi.org/project/deluge-gprc/>
 * Free software: GPL-3.0-only
 
 
+This project uses [deluge-card](https://github.com/mupaduw/deluge-card) which provides a python API for the Deluge Folder System.
+
 ## Features
 
-* TODO
+- run a local gRPC service with async_server.py - listens on `locahost:50057` by default.
+- demos for Python3 and nodejs (see [Usage](./deluge-grpc/usage))
+
+## Exmample
+
+```
+bash-3.2$ time python demo_client.py samples ~/Music/DELUGE/04 -p "**/Rol*/808 Sna*.*"
+INFO:root:ListContents request (streaming) card_root: "/Users/chrisbc/Music/DELUGE/04"
+pattern: "**/Rol*/808 Sna*.*"
+content_type: SAMPLE
+
+SAMPLES/xLDk/Roland TR-808/808 Snare_hi1.wav
+SAMPLES/xLDk/Roland TR-808/808 Snare_hi2.wav
+SAMPLES/xLDk/Roland TR-808/808 Snare_hi3.wav
+SAMPLES/xLDk/Roland TR-808/808 Snare_lo1.wav
+SAMPLES/xLDk/Roland TR-808/808 Snare_lo2.wav
+SAMPLES/xLDk/Roland TR-808/808 Snare_lo3.wav
+
+real	0m1.702s
+user	0m0.164s
+sys	0m0.049s
+```
 
 ## Credits
-
-This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [waynerv/cookiecutter-pypackage](https://github.com/waynerv/cookiecutter-pypackage) project template.
 
 ## Issues
 

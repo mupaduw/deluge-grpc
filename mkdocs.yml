@@ -1,13 +1,13 @@
 site_name: deluge-grpc
-site_url: https://chrisbc.github.io/deluge-grpc
-repo_url: https://github.com/chrisbc/deluge-grpc
-repo_name: chrisbc/deluge-grpc
+site_url: https://mupaduw.github.io/deluge-grpc
+repo_url: https://github.com/mupaduw/deluge-grpc
+repo_name: mupaduw/deluge-grpc
 #strict: true
 nav:
   - Home: index.md
   - Installation: installation.md
   - Usage: usage.md
-  - Modules: api.md
+  - Protobuf: deluge_dfs_proto.md
   - Contributing: contributing.md
   - Changelog: changelog.md
 theme:
@@ -36,9 +36,9 @@ markdown_extensions:
       generic: true
   - pymdownx.highlight:
       linenums: false
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.details
+  # - pymdownx.superfences
+  # - pymdownx.inlinehilite
+  # - pymdownx.details
   - admonition
   - toc:
       baselevel: 2
@@ -49,27 +49,15 @@ plugins:
   - include-markdown
   - search:
       lang: en
-  - mkdocstrings:
-      watch:
-        - deluge_grpc
+  - mkdocs_protobuf:
+      proto_dir: deluge_grpc
+  #- mkdocstrings:
+  #    watch:
+  #      - deluge_grpc
 extra:
   social:
-    - icon: fontawesome/brands/twitter
-      # replace with your own tweet link below
-      link: https://github.com/waynerv/cookiecutter-pypackage
-      name: Tweet
-    - icon: fontawesome/brands/facebook
-      # replace with your own facebook link below
-      link: https://github.com/waynerv/cookiecutter-pypackage
-      name: Facebook
     - icon: fontawesome/brands/github
-      link: https://github.com/chrisbc/deluge-grpc
+      link: https://github.com/mupaduw/deluge-grpc
       name: Github
     - icon: material/email
       link: "mailto:chrisbc@artisan.co.nz"
-  # to enable disqus, uncomment the following and put your disqus id below
-  # disqus: disqus_id
-# uncomment the following and put your google tracking id below to enable GA
-#google_analytics:
-  #- UA-xxx
-  #- auto

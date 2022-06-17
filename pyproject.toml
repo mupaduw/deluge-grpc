@@ -49,11 +49,15 @@ tox  = { version = "^3.20.1"}
 twine  = {version = "^3.3.0"}
 virtualenv  = { version = "^20.2.2"}
 types-protobuf = "^3.19.21"
+mkdocs-protobuf = "^0.1.0"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-deluge-card = "^0.6.1"
 grpcio = "^1.46.3"
+lxml = "^4.8.0"
+#deluge-card = {path = "../deluge-card"}
+deluge-card = "^0.7.0"
+protobuf = "^3.20.1"
 
 [tool.poetry.extras]
 test = [

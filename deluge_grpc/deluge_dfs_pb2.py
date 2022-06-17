@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 
 
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(
-    b'\n\x10\x64\x65luge_dfs.proto\x12\ndeluge_dfs\"h\n\x13ListContentsRequest\x12\x11\n\tcard_root\x18\x01 \x01(\t\x12\x0f\n\x07pattern\x18\x02 \x01(\t\x12-\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32\x17.deluge_dfs.ContentType\"i\n\x11ListContentsReply\x12\x11\n\tcard_root\x18\x01 \x01(\t\x12-\n\x0c\x63ontent_type\x18\x02 \x01(\x0e\x32\x17.deluge_dfs.ContentType\x12\x12\n\nfile_names\x18\x03 \x03(\t\"\"\n\x12ListFoldersRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"(\n\x10ListFoldersReply\x12\x14\n\x0c\x66older_names\x18\x01 \x03(\t*7\n\x0b\x43ontentType\x12\x08\n\x04SONG\x10\x00\x12\n\n\x06SAMPLE\x10\x01\x12\x07\n\x03KIT\x10\x02\x12\t\n\x05SYNTH\x10\x03\x32\xbb\x01\n\x12\x44\x65lugeFolderSystem\x12S\n\x11ListFolderSystems\x12\x1e.deluge_dfs.ListFoldersRequest\x1a\x1c.deluge_dfs.ListFoldersReply\"\x00\x12P\n\x0cListContents\x12\x1f.deluge_dfs.ListContentsRequest\x1a\x1d.deluge_dfs.ListContentsReply\"\x00\x42\x38\n\x15io.mupaduw.deluge_dfsB\x17\x44\x65lugeFolderSystemProtoP\x01\xa2\x02\x03\x44\x46Sb\x06proto3'
+    b'\n\x10\x64\x65luge_dfs.proto\x12\ndeluge_dfs\"h\n\x13ListContentsRequest\x12\x11\n\tcard_root\x18\x01 \x01(\t\x12\x0f\n\x07pattern\x18\x02 \x01(\t\x12-\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32\x17.deluge_dfs.ContentType\"i\n\x11ListContentsReply\x12\x11\n\tcard_root\x18\x01 \x01(\t\x12-\n\x0c\x63ontent_type\x18\x02 \x01(\x0e\x32\x17.deluge_dfs.ContentType\x12\x12\n\nfile_names\x18\x03 \x03(\t\",\n\x17ListContentsStreamReply\x12\x11\n\tfile_name\x18\x01 \x01(\t\"\"\n\x12ListFoldersRequest\x12\x0c\n\x04path\x18\x01 \x01(\t\"(\n\x10ListFoldersReply\x12\x14\n\x0c\x66older_names\x18\x01 \x03(\t*7\n\x0b\x43ontentType\x12\x08\n\x04SONG\x10\x00\x12\n\n\x06SAMPLE\x10\x01\x12\x07\n\x03KIT\x10\x02\x12\t\n\x05SYNTH\x10\x03\x32\x9d\x02\n\x12\x44\x65lugeFolderSystem\x12U\n\x11ListFolderSystems\x12\x1e.deluge_dfs.ListFoldersRequest\x1a\x1c.deluge_dfs.ListFoldersReply\"\x00\x30\x01\x12P\n\x0cListContents\x12\x1f.deluge_dfs.ListContentsRequest\x1a\x1d.deluge_dfs.ListContentsReply\"\x00\x12^\n\x12ListContentsStream\x12\x1f.deluge_dfs.ListContentsRequest\x1a#.deluge_dfs.ListContentsStreamReply\"\x00\x30\x01\x42\x38\n\x15io.mupaduw.deluge_dfsB\x17\x44\x65lugeFolderSystemProtoP\x01\xa2\x02\x03\x44\x46Sb\x06proto3'
 )
 
 _CONTENTTYPE = DESCRIPTOR.enum_types_by_name['ContentType']
@@ -28,6 +28,7 @@ SYNTH = 3
 
 _LISTCONTENTSREQUEST = DESCRIPTOR.message_types_by_name['ListContentsRequest']
 _LISTCONTENTSREPLY = DESCRIPTOR.message_types_by_name['ListContentsReply']
+_LISTCONTENTSSTREAMREPLY = DESCRIPTOR.message_types_by_name['ListContentsStreamReply']
 _LISTFOLDERSREQUEST = DESCRIPTOR.message_types_by_name['ListFoldersRequest']
 _LISTFOLDERSREPLY = DESCRIPTOR.message_types_by_name['ListFoldersReply']
 ListContentsRequest = _reflection.GeneratedProtocolMessageType(
@@ -51,6 +52,17 @@ ListContentsReply = _reflection.GeneratedProtocolMessageType(
     },
 )
 _sym_db.RegisterMessage(ListContentsReply)
+
+ListContentsStreamReply = _reflection.GeneratedProtocolMessageType(
+    'ListContentsStreamReply',
+    (_message.Message,),
+    {
+        'DESCRIPTOR': _LISTCONTENTSSTREAMREPLY,
+        '__module__': 'deluge_dfs_pb2'
+        # @@protoc_insertion_point(class_scope:deluge_dfs.ListContentsStreamReply)
+    },
+)
+_sym_db.RegisterMessage(ListContentsStreamReply)
 
 ListFoldersRequest = _reflection.GeneratedProtocolMessageType(
     'ListFoldersRequest',
@@ -79,16 +91,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
     DESCRIPTOR._options = None
     DESCRIPTOR._serialized_options = b'\n\025io.mupaduw.deluge_dfsB\027DelugeFolderSystemProtoP\001\242\002\003DFS'
-    _CONTENTTYPE._serialized_start = 323
-    _CONTENTTYPE._serialized_end = 378
+    _CONTENTTYPE._serialized_start = 369
+    _CONTENTTYPE._serialized_end = 424
     _LISTCONTENTSREQUEST._serialized_start = 32
     _LISTCONTENTSREQUEST._serialized_end = 136
     _LISTCONTENTSREPLY._serialized_start = 138
     _LISTCONTENTSREPLY._serialized_end = 243
-    _LISTFOLDERSREQUEST._serialized_start = 245
-    _LISTFOLDERSREQUEST._serialized_end = 279
-    _LISTFOLDERSREPLY._serialized_start = 281
-    _LISTFOLDERSREPLY._serialized_end = 321
-    _DELUGEFOLDERSYSTEM._serialized_start = 381
-    _DELUGEFOLDERSYSTEM._serialized_end = 568
+    _LISTCONTENTSSTREAMREPLY._serialized_start = 245
+    _LISTCONTENTSSTREAMREPLY._serialized_end = 289
+    _LISTFOLDERSREQUEST._serialized_start = 291
+    _LISTFOLDERSREQUEST._serialized_end = 325
+    _LISTFOLDERSREPLY._serialized_start = 327
+    _LISTFOLDERSREPLY._serialized_end = 367
+    _DELUGEFOLDERSYSTEM._serialized_start = 427
+    _DELUGEFOLDERSYSTEM._serialized_end = 712
 # @@protoc_insertion_point(module_scope)
